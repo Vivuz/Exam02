@@ -1,1 +1,507 @@
-@font-face{font-family:"flowers";src:url(../font/Austie\ Bost\ You\ Wear\ Flowers\ Solid.ttf);font-weight:normal}@font-face{font-family:"kberry";src:url(../font/kberry.ttf)}@font-face{font-family:"chantelli_antiqua";src:url(../font/Chantelli_Antiqua.ttf)}header{position:fixed;top:0;left:0;width:100vw;z-index:1000}header .content-flex{display:flex;justify-content:space-between;align-items:center;padding:0 2rem;height:60px;width:100%;background-color:#136262;box-shadow:0 2px 4px rgba(0,0,0,.746)}.hamburger-menu{display:flex;justify-content:left;align-items:center;width:100%;height:40px}.hamburger-menu .logo{font-size:2rem;color:#fff;font-family:"flowers";font-weight:bold;letter-spacing:3px;margin-top:3rem;margin-right:auto}.hamburger-menu .menu{display:flex;list-style:none}.hamburger-menu .menu li{margin-right:2rem;font-size:clamp(1rem,1.5vw,1.25rem)}.hamburger-menu .menu li a{color:#fff;text-decoration:none;font-weight:normal}.hamburger-menu .menu li a:hover{color:#ddd;border-bottom:2px solid #fff}.hamburger-menu #control{display:none}.hamburger-menu .label-control{display:none;position:relative;width:30px;height:22px;cursor:pointer}.hamburger-menu .label-control span,.hamburger-menu .label-control span:before,.hamburger-menu .label-control span:after{content:"";position:absolute;width:100%;height:4px;background:#fff;transition:.3s}.hamburger-menu .label-control span{top:9px}.hamburger-menu .label-control span:before{top:-9px}.hamburger-menu .label-control span:after{top:9px}@media(max-width: 768px){.hamburger-menu .content-flex{display:flex}}@media(max-width: 768px)and (max-width: 768px){.hamburger-menu .logo{display:none}}@media(max-width: 768px){.hamburger-menu .menu{position:absolute;top:60px;right:0;flex-direction:column;align-items:center;width:100%;height:0;overflow:hidden;background-color:#136262;transition:height .3s ease}.hamburger-menu .menu li{width:100%;text-align:center;margin:0;padding:1rem 0}.hamburger-menu #control:checked~.menu{height:auto}.hamburger-menu .label-control{display:block;width:25px;height:18px}.hamburger-menu .label-control span,.hamburger-menu .label-control span:before,.hamburger-menu .label-control span:after{content:"";position:absolute;width:100%;height:3px;background:#fff;transition:.3s}.hamburger-menu #control:checked+.label-control span{transform:rotate(45deg)}.hamburger-menu #control:checked+.label-control span:before{transform:rotate(90deg);top:0}.hamburger-menu #control:checked+.label-control span:after{transform:rotate(90deg);top:0}}.title{color:#fff;font-size:clamp(1rem,1.5vw,2rem);margin:10px;padding:10px}.cover{width:100%;display:flex;justify-content:center;align-items:center;position:relative;flex-direction:column}.cover img{width:100%;height:auto;margin-top:1.5vh;border-radius:20px}.cover h1,.cover p{color:#fff;text-align:center;position:absolute;left:50%;transform:translateX(-50%)}.cover h1{font-size:clamp(4rem,8vw,6rem);font-family:"flowers";margin:clamp(1rem,2vw,3rem) 0 0;letter-spacing:2px}.cover p{font-size:clamp(2.5rem,4vw,3.5rem);font-family:"kberry";margin:10rem 0 0}@media(max-width: 768px){.cover h1{font-size:clamp(2.5rem,6vw,3.5rem);margin-top:4vw}.cover p{display:none}}.projects{padding:2rem}.projects .myProject{display:flex;flex-direction:column;gap:2rem}.projects .myProject .p-title{display:flex;align-items:flex-start;gap:1rem}.projects .myProject .p-title h3{font-size:clamp(1rem,2.5vw,1.5rem);margin:0;width:100%;font-family:"chantelli_antiqua";color:#fff}.projects .myProject .p-title img{max-width:150px;height:auto;border-radius:10px}.projects .myProject .p-title p{font-size:clamp(1rem,1.5vw,1.25rem);flex-grow:1;text-align:justify;margin:0;color:#faebd7;letter-spacing:1px}@media(max-width: 768px){.projects .myProject .p-title{flex-direction:column;align-items:center}.projects .myProject .p-title img{max-width:100%}}.about .content-flex .description{font-family:"Times New Roman",Times,serif;font-size:clamp(1rem,1.5vw,1.25rem);text-align:justify;margin:2.5vw;color:#faebd7;letter-spacing:1px}@media(max-width: 768px){.about .content-flex .description{font-size:clamp(1rem,1.5vw,1.25rem)}}.form{padding:clamp(1.5rem,2.5vw,3rem);border-radius:20px;box-shadow:0 4px 10px rgba(0,0,0,.1)}.form .content-flex{display:flex;flex-direction:column;gap:clamp(1rem,2vw,1.5rem)}.form .content-flex .ContactQuestion{font-size:clamp(1rem,1.5vw,1.25rem);font-family:"chantelli_antiqua";color:#faebd7;text-align:center;letter-spacing:.5px}.form .content-flex .contact{font-size:clamp(1rem,1.5vw,1.25rem);margin-bottom:clamp(1rem,2vw,1.5rem)}.form .content-flex form{display:flex;flex-direction:column;width:clamp(16rem,90%,40rem);background-color:rgba(19,98,98,.607);border-radius:20px;padding:clamp(1rem,2.5vw,2rem)}.form .content-flex form .info{display:flex;flex-direction:column}.form .content-flex form .info label{margin:clamp(.5rem,1vw,1rem) 0;font-family:"Times New Roman",Times,serif;letter-spacing:1px;font-weight:bold;color:#fff;font-size:clamp(1rem,1.5vw,1.2rem)}.form .content-flex form .info input,.form .content-flex form .info textarea{padding:clamp(.5rem,1vw,.75rem);border:1px solid #ccc;border-radius:4px;font-family:"Times New Roman",Times,serif;font-size:clamp(1rem,1.5vw,1.2rem)}.form .content-flex form .info .red-text{color:#e89700;font-size:clamp(.8rem,1vw,.9rem);font-family:"Times New Roman",Times,serif;margin-top:1vw;font-weight:bold;letter-spacing:1px}.form .content-flex form button{font-size:clamp(1rem,1.5vw,1.2rem);width:9rem;height:3rem;padding:.5rem 1rem;font-size:1.2rem;border:none;border-radius:4px;cursor:pointer;transition:background-color .3s ease;font-family:"chantelli_antiqua";background-color:rgba(3,37,3,.768);color:#fff;border:none;border-radius:20px;text-align:center;margin:2rem auto 0;max-width:100%}.form .content-flex form button:hover{background-color:rgba(19,98,98,.859)}@media(max-width: 768px){.form .content-flex{align-items:center;text-align:center}.form .content-flex form{width:clamp(12rem,85%,30rem)}}footer{background-color:rgba(19,98,98,.679);color:#fff;padding:1rem;text-align:center;width:100vw}footer #footer-content{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:2rem;max-width:1200px;margin:0 auto}footer #footer-content .contacts,footer #footer-content .social-media,footer #footer-content .rights{flex:1 1 100%;padding:1rem}footer #footer-content h2{font-size:1.5rem;margin-bottom:1rem;font-weight:bold}footer #footer-content .email-container,footer #footer-content .rights,footer #footer-content address{font-size:1rem;margin:.5rem 0}footer #footer-content .email-container a,footer #footer-content .rights a,footer #footer-content address a{color:#fff;text-decoration:none}footer #footer-content .email-container a:hover,footer #footer-content .rights a:hover,footer #footer-content address a:hover{color:#f39c12}footer #footer-content .social-media .icons{display:flex;gap:1rem;justify-content:center}footer #footer-content .social-media .icons a{color:#fff;font-size:1.5rem;transition:color .3s ease;text-decoration:none}footer #footer-content .social-media .icons a:hover{color:#f39c12}footer #footer-content .rights{font-size:.9rem;color:#bbb;margin-top:2rem}@media(max-width: 768px){footer #footer-content{flex-direction:column;align-items:center}}*{box-sizing:border-box}body{background-color:#072c07}.content-flex{display:flex;flex-direction:row;flex-wrap:wrap;justify-content:center;align-items:center;margin:auto}h2{color:#fff;font-family:"chantelli_antiqua";text-align:center;font-size:clamp(1.5rem,3vw,2rem);margin-top:3rem;margin-bottom:3rem;letter-spacing:2px}
+@font-face {
+    font-family: "flowers";
+    src: url(../font/Austie\ Bost\ You\ Wear\ Flowers\ Solid.ttf);
+    font-weight: normal
+}
+
+@font-face {
+    font-family: "kberry";
+    src: url(../font/kberry.ttf)
+}
+
+@font-face {
+    font-family: "chantelli_antiqua";
+    src: url(../font/Chantelli_Antiqua.ttf)
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    z-index: 1000
+}
+
+header .content-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+    height: 60px;
+    width: 100%;
+    background-color: #136262;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .746)
+}
+
+.hamburger-menu {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    width: 100%;
+    height: 40px
+}
+
+.hamburger-menu .logo {
+    font-size: 2rem;
+    color: #fff;
+    font-family: "flowers";
+    font-weight: bold;
+    letter-spacing: 3px;
+    margin-top: 3rem;
+    margin-right: auto
+}
+
+.hamburger-menu .menu {
+    display: flex;
+    list-style: none
+}
+
+.hamburger-menu .menu li {
+    margin-right: 2rem;
+    font-size: clamp(1rem, 1.5vw, 1.25rem)
+}
+
+.hamburger-menu .menu li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: normal
+}
+
+.hamburger-menu .menu li a:hover {
+    color: #ddd;
+    border-bottom: 2px solid #fff
+}
+
+.hamburger-menu #control {
+    display: none
+}
+
+.hamburger-menu .label-control {
+    display: none;
+    position: relative;
+    width: 30px;
+    height: 22px;
+    cursor: pointer
+}
+
+.hamburger-menu .label-control span,
+.hamburger-menu .label-control span:before,
+.hamburger-menu .label-control span:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    background: #fff;
+    transition: .3s
+}
+
+.hamburger-menu .label-control span {
+    top: 9px
+}
+
+.hamburger-menu .label-control span:before {
+    top: -9px
+}
+
+.hamburger-menu .label-control span:after {
+    top: 9px
+}
+
+@media(max-width: 768px) {
+    .hamburger-menu .content-flex {
+        display: flex
+    }
+}
+
+@media(max-width: 768px)and (max-width: 768px) {
+    .hamburger-menu .logo {
+        display: none
+    }
+}
+
+@media(max-width: 768px) {
+    .hamburger-menu .menu {
+        position: absolute;
+        top: 60px;
+        right: 0;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        height: 0;
+        overflow: hidden;
+        background-color: #136262;
+        transition: height .3s ease
+    }
+
+    .hamburger-menu .menu li {
+        width: 100%;
+        text-align: center;
+        margin: 0;
+        padding: 1rem 0
+    }
+
+    .hamburger-menu #control:checked~.menu {
+        height: auto
+    }
+
+    .hamburger-menu .label-control {
+        display: block;
+        width: 25px;
+        height: 18px
+    }
+
+    .hamburger-menu .label-control span,
+    .hamburger-menu .label-control span:before,
+    .hamburger-menu .label-control span:after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 3px;
+        background: #fff;
+        transition: .3s
+    }
+
+    .hamburger-menu #control:checked+.label-control span {
+        transform: rotate(45deg)
+    }
+
+    .hamburger-menu #control:checked+.label-control span:before {
+        transform: rotate(90deg);
+        top: 0
+    }
+
+    .hamburger-menu #control:checked+.label-control span:after {
+        transform: rotate(90deg);
+        top: 0
+    }
+}
+
+.title {
+    color: #fff;
+    font-size: clamp(1rem, 1.5vw, 2rem);
+    margin: 10px;
+    padding: 10px
+}
+
+.cover {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    flex-direction: column
+}
+
+.cover img {
+    width: 100%;
+    height: auto;
+    margin-top: 1.5vh;
+    border-radius: 20px
+}
+
+.cover h1,
+.cover p {
+    color: #fff;
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%)
+}
+
+.cover h1 {
+    font-size: clamp(4rem, 8vw, 6rem);
+    font-family: "flowers";
+    margin: clamp(1rem, 2vw, 3rem) 0 0;
+    letter-spacing: 2px
+}
+
+.cover p {
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    font-family: "kberry";
+    margin: 10rem 0 0
+}
+
+@media(max-width: 768px) {
+    .cover h1 {
+        font-size: clamp(2.5rem, 6vw, 3.5rem);
+        margin-top: 4vw
+    }
+
+    .cover p {
+        display: none
+    }
+}
+
+.projects {
+    padding: 2rem
+}
+
+.projects .myProject {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem
+}
+
+.projects .myProject .p-title {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem
+}
+
+.projects .myProject .p-title h3 {
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    margin: 0;
+    width: 100%;
+    font-family: "chantelli_antiqua";
+    color: #fff
+}
+
+.projects .myProject .p-title img {
+    max-width: 150px;
+    height: auto;
+    border-radius: 10px
+}
+
+.projects .myProject .p-title p {
+    font-size: clamp(1rem, 1.5vw, 1.25rem);
+    flex-grow: 1;
+    text-align: justify;
+    margin: 0;
+    color: #faebd7;
+    letter-spacing: 1px
+}
+
+@media(max-width: 768px) {
+    .projects .myProject .p-title {
+        flex-direction: column;
+        align-items: center
+    }
+
+    .projects .myProject .p-title img {
+        max-width: 100%
+    }
+}
+
+.about .content-flex .description {
+    font-family: "Times New Roman", Times, serif;
+    font-size: clamp(1rem, 1.5vw, 1.25rem);
+    text-align: justify;
+    margin: 2.5vw;
+    color: #faebd7;
+    letter-spacing: 1px
+}
+
+@media(max-width: 768px) {
+    .about .content-flex .description {
+        font-size: clamp(1rem, 1.5vw, 1.25rem)
+    }
+}
+
+.form {
+    padding: clamp(1.5rem, 2.5vw, 3rem);
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, .1)
+}
+
+.form .content-flex {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(1rem, 2vw, 1.5rem)
+}
+
+.form .content-flex .ContactQuestion {
+    font-size: clamp(1rem, 1.5vw, 1.25rem);
+    font-family: "chantelli_antiqua";
+    color: #faebd7;
+    text-align: center;
+    letter-spacing: .5px
+}
+
+.form .content-flex .contact {
+    font-size: clamp(1rem, 1.5vw, 1.25rem);
+    margin-bottom: clamp(1rem, 2vw, 1.5rem)
+}
+
+.form .content-flex form {
+    display: flex;
+    flex-direction: column;
+    width: clamp(16rem, 90%, 40rem);
+    background-color: rgba(19, 98, 98, .607);
+    border-radius: 20px;
+    padding: clamp(1rem, 2.5vw, 2rem)
+}
+
+.form .content-flex form .info {
+    display: flex;
+    flex-direction: column
+}
+
+.form .content-flex form .info label {
+    margin: clamp(.5rem, 1vw, 1rem) 0;
+    font-family: "Times New Roman", Times, serif;
+    letter-spacing: 1px;
+    font-weight: bold;
+    color: #fff;
+    font-size: clamp(1rem, 1.5vw, 1.2rem)
+}
+
+.form .content-flex form .info input,
+.form .content-flex form .info textarea {
+    padding: clamp(.5rem, 1vw, .75rem);
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: "Times New Roman", Times, serif;
+    font-size: clamp(1rem, 1.5vw, 1.2rem)
+}
+
+.form .content-flex form .info .red-text {
+    color: #e89700;
+    font-size: clamp(.8rem, 1vw, .9rem);
+    font-family: "Times New Roman", Times, serif;
+    margin-top: 1vw;
+    font-weight: bold;
+    letter-spacing: 1px
+}
+
+.form .content-flex form button {
+    font-size: clamp(1rem, 1.5vw, 1.2rem);
+    width: 9rem;
+    height: 3rem;
+    padding: .5rem 1rem;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color .3s ease;
+    font-family: "chantelli_antiqua";
+    background-color: rgba(3, 37, 3, .768);
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    text-align: center;
+    margin: 2rem auto 0;
+    max-width: 100%
+}
+
+.form .content-flex form button:hover {
+    background-color: rgba(19, 98, 98, .859)
+}
+
+@media(max-width: 768px) {
+    .form .content-flex {
+        align-items: center;
+        text-align: center
+    }
+
+    .form .content-flex form {
+        width: clamp(12rem, 85%, 30rem)
+    }
+}
+
+footer {
+    background-color: rgba(19, 98, 98, .679);
+    color: #fff;
+    padding: 1rem;
+    text-align: center;
+    width: 100vw
+}
+
+footer #footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto
+}
+
+footer #footer-content .contacts,
+footer #footer-content .social-media,
+footer #footer-content .rights {
+    flex: 1 1 100%;
+    padding: 1rem
+}
+
+footer #footer-content h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-weight: bold
+}
+
+footer #footer-content .email-container,
+footer #footer-content .rights,
+footer #footer-content address {
+    font-size: 1rem;
+    margin: .5rem 0
+}
+
+footer #footer-content .email-container a,
+footer #footer-content .rights a,
+footer #footer-content address a {
+    color: #fff;
+    text-decoration: none
+}
+
+footer #footer-content .email-container a:hover,
+footer #footer-content .rights a:hover,
+footer #footer-content address a:hover {
+    color: #f39c12
+}
+
+footer #footer-content .social-media .icons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center
+}
+
+footer #footer-content .social-media .icons a {
+    color: #fff;
+    font-size: 1.5rem;
+    transition: color .3s ease;
+    text-decoration: none
+}
+
+footer #footer-content .social-media .icons a:hover {
+    color: #f39c12
+}
+
+footer #footer-content .rights {
+    font-size: .9rem;
+    color: #bbb;
+    margin-top: 2rem
+}
+
+@media(max-width: 768px) {
+    footer #footer-content {
+        flex-direction: column;
+        align-items: center
+    }
+}
+
+* {
+    box-sizing: border-box
+}
+
+body {
+    background-color: #072c07
+}
+
+.content-flex {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: auto
+}
+
+h2 {
+    color: #fff;
+    font-family: "chantelli_antiqua";
+    text-align: center;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    letter-spacing: 2px
+}
