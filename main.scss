@@ -1,0 +1,40 @@
+// Importing necessary SCSS modules
+@import "font"; 
+@import "variables"; 
+@import "mixin"; 
+@import "menu"; 
+@import "cover"; 
+@import "project"; 
+@import "aboutme"; 
+@import "contactUs"; 
+@import "footer"; 
+
+// Universal selector to apply box-sizing
+* {
+    box-sizing: border-box; // Ensures padding and borders are included in element's total width and height
+}
+
+// Body styling
+body {
+    background-color: $mainBg; // Sets the main background color for the page
+}
+
+// Flex container for general content layout
+.content-flex {
+    display: flex; 
+    flex-direction: row; 
+    flex-wrap: wrap; 
+    justify-content: center; 
+    align-items: center; 
+    margin: auto; 
+}
+
+// Styling for h2 headings
+h2 {
+    color: $colorHeading; 
+    font-family: $fontHeading; 
+    text-align: center; 
+    @include clamp-font(1.5rem, 3vw, 2rem); 
+    @include margin-h2(3rem, 3rem); 
+    letter-spacing: 2px; 
+}

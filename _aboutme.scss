@@ -1,0 +1,14 @@
+.about .content-flex .description {
+    font-family: 'Times New Roman', Times, serif;
+    @include clamp-font(1rem, 1.5vw, 1.25rem); // Limits the size between 1rem and 2rem
+    text-align: justify;
+    margin: 2.5vw;
+    color: $colorGenFont;
+    letter-spacing: 1px;
+}
+
+@media (max-width: 768px) {
+    .about .content-flex .description {
+        @include clamp-font(1rem, 1.5vw, 1.25rem); // Sets a minimum of 1rem and a maximum of 1.5rem
+    }
+}

@@ -1,0 +1,94 @@
+.form {
+    padding: clamp(1.5rem, 2.5vw, 3rem); // Responsive padding for different screen sizes
+    border-radius: 20px; // Rounded corners
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); // Subtle shadow for depth
+
+    .content-flex {
+        display: flex;
+        flex-direction: column;
+        gap: clamp(1rem, 2vw, 1.5rem); // Responsive spacing between elements
+
+        .ContactQuestion {
+            @include clamp-font(1rem, 1.5vw, 1.25rem); // Responsive font size for question text
+            font-family: $fontHeading;
+            color: $colorGenFont;
+            text-align: center; // Center-align text within the form
+            letter-spacing: 0.5px;
+        }
+
+        .contact {
+            @include clamp-font(1rem, 1.5vw, 1.25rem); // Responsive font size for contact text
+            margin-bottom: clamp(1rem, 2vw, 1.5rem); // Responsive margin for spacing
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            width: clamp(16rem, 90%, 40rem); // Responsive width for form container
+            background-color: $bgForm;
+            border-radius: 20px;
+            padding: clamp(1rem, 2.5vw, 2rem); // Responsive padding inside form
+
+            .info {
+                display: flex;
+                flex-direction: column;
+
+                label {
+                    margin: clamp(0.5rem, 1vw, 1rem) 0; // Responsive margin for labels
+                    font-family: 'Times New Roman', Times, serif;
+                    letter-spacing: 1px;
+                    font-weight: bold;
+                    color: $Color_Font;
+                    @include clamp-font(1rem, 1.5vw, 1.2rem); // Responsive font size for labels
+                }
+
+                input,
+                textarea {
+                    padding: clamp(0.5rem, 1vw, 0.75rem); // Responsive padding within input fields
+                    border: 1px solid #ccc; // Light border for input fields
+                    border-radius: 4px;
+                    font-family: 'Times New Roman', Times, serif;
+                    @include clamp-font(1rem, 1.5vw, 1.2rem); // Responsive font size for input fields
+                }
+
+                .red-text {
+                    color: rgb(232, 151, 0); // Error message color
+                    font-size: clamp(0.8rem, 1vw, 0.9rem); // Responsive font size for error messages
+                    font-family: 'Times New Roman', Times, serif;
+                    margin-top: 1vw; // Margin above error messages
+                    font-weight: bold;
+                    letter-spacing: 1px;
+                }
+            }
+
+            button {
+                @include clamp-font(1rem, 1.5vw, 1.2rem); // Responsive font size for button text
+                @include button-size(9rem, 3rem, 0.5rem 1rem, 1.2rem); // Custom button sizing mixin
+                font-family: $fontHeading;
+                background-color: $btn_color; // Primary button color
+                color: white; // Button text color
+                border: none;
+                border-radius: 20px;
+                text-align: center;
+                margin: 2rem auto 0; // Center button with margin above
+                max-width: 100%;
+
+                &:hover {
+                    background-color: $btn_hover; // Hover color for button
+                }
+            }
+        }
+    }
+
+    // Responsive adjustments for screens 768px and below
+    @media (max-width: 768px) {
+        .content-flex {
+            align-items: center; // Center-align items on smaller screens
+            text-align: center;
+
+            form {
+                width: clamp(12rem, 85%, 30rem); // Adjust form width for smaller screens
+            }
+        }
+    }
+}

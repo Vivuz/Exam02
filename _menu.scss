@@ -1,0 +1,135 @@
+// Base styling for the header and navigation bar
+header {
+    position: fixed; // Keep the header at the top of the page
+    top: 0;
+    left: 0;
+    width: 100vw; // Full viewport width to stretch across the screen
+    z-index: 1000; // Ensure header stays on top of other elements
+
+    .content-flex {
+        @include center-flex(space-between, center); // Flexbox to center items and distribute space
+        padding: 0 2rem;
+        height: 60px; // Height of the header
+        width: 100%; // Full width of the header
+        background-color: $bgmenu; // Background color for the header
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.746); // Shadow for depth
+    }
+}
+
+// Hamburger menu wrapper styling
+.hamburger-menu {
+    @include center-flex(left); // Align menu items to the left
+    width: 100%;
+    height: 40px; // Height for alignment with header
+
+    .logo {
+        @include logo-text; // Logo styling mixin
+        margin-top: 3rem; // Adjust vertical spacing
+        margin-right: auto; // Push logo to the far left
+    }
+
+    .menu {
+        display: flex; // Horizontal menu by default
+        list-style: none; // Remove default list styling
+        
+        li {
+            margin-right: 2rem; // Space between menu items
+            @include clamp-font(1rem, 1.5vw, 1.25rem); // Responsive font size
+
+            a {
+                @include menu-link; // Styles for links (color, no underline, etc.)
+            }
+        }
+    }
+
+    // Control input for toggling the hamburger menu, hidden by default
+    #control {
+        display: none; // Hidden checkbox for controlling menu toggle
+    }
+
+    // Label for the hamburger icon (visible only on mobile)
+    .label-control {
+        display: none; // Hidden on larger screens
+        position: relative;
+        width: 30px;
+        height: 22px;
+        cursor: pointer; // Pointer cursor for interactivity
+
+        span,
+        span:before,
+        span:after {
+            @include hamburger-bar(); // Hamburger icon styling for bars
+        }
+
+        span {
+            top: 9px; // Center bar position
+        }
+
+        span:before {
+            top: -9px; // Top bar position
+        }
+
+        span:after {
+            top: 9px; // Bottom bar position
+        }
+    }
+
+    // Responsive design: transform the menu into a hamburger menu on smaller screens
+    @media (max-width: 768px) {
+        .content-flex {
+            display: flex; // Ensure content is flexbox aligned on mobile
+        }
+        .logo {
+            @include hide-on-mobile; // Hide the logo on smaller screens
+        }
+        .menu {
+            position: absolute;
+            top: 60px; // Place menu below the header
+            right: 0;
+            flex-direction: column; // Stack menu items vertically
+            align-items: center;
+            width: 100%;
+            height: 0; // Collapse the menu initially
+            overflow: hidden; // Hide overflowing content when collapsed
+            background-color: $bgmenu; // Background for the dropdown menu
+            transition: height 0.3s ease; // Smoothly transition height on toggle
+
+            li {
+                width: 100%; // Full-width items
+                text-align: center;
+                margin: 0;
+                padding: 1rem 0; // Space between items
+            }
+        }
+
+        // Show menu when the control checkbox is checked
+        #control:checked ~ .menu {
+            height: auto; // Expand the menu
+        }
+
+        .label-control {
+            display: block; // Show hamburger icon on mobile
+            width: 25px;
+            height: 18px;
+
+            span, span:before, span:after {
+                @include hamburger-bar(100%, 3px); // Adjust bar thickness
+            }
+        }
+
+        // Animate hamburger icon to an "X" shape when clicked
+        #control:checked + .label-control span {
+            transform: rotate(45deg); // Rotate middle bar
+        }
+
+        #control:checked + .label-control span:before {
+            transform: rotate(90deg); // Rotate top bar to horizontal
+            top: 0; // Move to center
+        }
+
+        #control:checked + .label-control span:after {
+            transform: rotate(90deg); // Rotate bottom bar to horizontal
+            top: 0; // Move to center
+        }
+    }
+}

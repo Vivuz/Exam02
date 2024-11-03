@@ -1,0 +1,58 @@
+// Styling for the main title element
+.title {
+  color: #fff; // White text color for the title
+  font-size: clamp(1rem, 1.5vw, 2rem); // Responsive font size using clamp
+  margin: 10px; // Margin around the title for spacing
+  padding: 10px; // Padding within the title for spacing
+}
+
+// Styling for the main cover container that holds the image and text
+.cover {
+  width: 100%; // Full width of the container
+  @include center-flex; // Center content within the container
+  position: relative; // Enables absolute positioning for child elements
+  flex-direction: column; // Stack items vertically within the container
+
+  img {
+    width: 100%; // Image takes full width of container
+    height: auto; // Maintain image aspect ratio
+    margin-top: 1.5vh; // Small top margin to create space
+    border-radius: 20px; // Rounded corners for a softer look
+  }
+
+  // Styling for both the heading (h1) and paragraph (p) within the cover
+  h1, p {
+    color: white; // White text color
+    text-align: center; // Center-align the text
+    position: absolute; // Positioned over the image
+    left: 50%; // Center horizontally within the container
+    transform: translateX(-50%); //To center the text
+  }
+
+  // Styling specifically for the h1 heading
+  h1 {
+    @include clamp-font(4rem, 8vw, 6rem); // Responsive font size for large screens
+    font-family: "flowers"; // Custom font for heading
+    margin: clamp(1rem, 2vw, 3rem) 0 0; // Responsive margin above heading
+    letter-spacing: 2px; // Space between letters for readability
+  }
+
+  // Styling specifically for the paragraph text
+  p {
+    @include clamp-font(2.5rem, 4vw, 3.5rem); // Responsive font size for paragraph
+    font-family: "kberry"; // Custom font for paragraph text
+    margin: 10rem 0 0; // Margin to position paragraph text below h1
+  }
+
+  // Responsive adjustments for smaller screens
+  @media (max-width: 768px) {
+    h1 {
+      font-size: clamp(2.5rem, 6vw, 3.5rem); // Adjusted font size for smaller screens
+      margin-top: 4vw; // Reduced top margin for better fit
+    }
+
+    p {
+      display: none; // Hide paragraph text on smaller screens for clarity
+    }
+  }
+}
