@@ -31,7 +31,7 @@
 
   // Styling specifically for the h1 heading
   h1 {
-    @include clamp-font(4rem, 8vw, 6rem); // Responsive font size for large screens
+    @include clamp-size(4rem, 8vw, 6rem); // Responsive font size for large screens
     font-family: "flowers"; // Custom font for heading
     margin: clamp(1rem, 2vw, 3rem) 0 0; // Responsive margin above heading
     letter-spacing: 2px; // Space between letters for readability
@@ -39,7 +39,7 @@
 
   // Styling specifically for the paragraph text
   p {
-    @include clamp-font(2.5rem, 4vw, 3.5rem); // Responsive font size for paragraph
+    @include clamp-size(2.5rem, 4vw, 3.5rem); // Responsive font size for paragraph
     font-family: "kberry"; // Custom font for paragraph text
     margin: 10rem 0 0; // Margin to position paragraph text below h1
   }

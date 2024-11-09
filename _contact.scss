@@ -9,7 +9,7 @@
         gap: clamp(1rem, 2vw, 1.5rem); // Responsive spacing between elements
 
         .ContactQuestion {
-            @include clamp-font(1rem, 1.5vw, 1.25rem); // Responsive font size for question text
+            @include clamp-size(1rem, 1.5vw, 1.25rem); // Responsive font size for question text
             font-family: $fontHeading;
             color: $colorGenFont;
             text-align: center; // Center-align text within the form
@@ -17,7 +17,7 @@
         }
 
         .contact {
-            @include clamp-font(1rem, 1.5vw, 1.25rem); // Responsive font size for contact text
+            @include clamp-size(1rem, 1.5vw, 1.25rem); // Responsive font size for contact text
             margin-bottom: clamp(1rem, 2vw, 1.5rem); // Responsive margin for spacing
         }
 
@@ -39,7 +39,7 @@
                     letter-spacing: 1px;
                     font-weight: bold;
                     color: $Color_Font;
-                    @include clamp-font(1rem, 1.5vw, 1.2rem); // Responsive font size for labels
+                    @include clamp-size(1rem, 1.5vw, 1.2rem); // Responsive font size for labels
                 }
 
                 input,
@@ -48,7 +48,7 @@
                     border: 1px solid #ccc; // Light border for input fields
                     border-radius: 4px;
                     font-family: 'Times New Roman', Times, serif;
-                    @include clamp-font(1rem, 1.5vw, 1.2rem); // Responsive font size for input fields
+                    @include clamp-size(1rem, 1.5vw, 1.2rem); // Responsive font size for input fields
                 }
 
                 .red-text {
@@ -62,20 +62,8 @@
             }
 
             button {
-                @include clamp-font(1rem, 1.5vw, 1.2rem); // Responsive font size for button text
-                @include button-size(9rem, 3rem, 0.5rem 1rem, 1.2rem); // Custom button sizing mixin
-                font-family: $fontHeading;
-                background-color: $btn_color; // Primary button color
-                color: white; // Button text color
-                border: none;
-                border-radius: 20px;
-                text-align: center;
-                margin: 2rem auto 0; // Center button with margin above
-                max-width: 100%;
-
-                &:hover {
-                    background-color: $btn_hover; // Hover color for button
-                }
+                @include clamp-size(1rem, 1.5vw, 1.2rem); // Responsive font size for button text
+                @include button-style(9rem, 3rem, 0.5rem 1rem, 1.2rem); // Custom button sizing mixin
             }
         }
     }

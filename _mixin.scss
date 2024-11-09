@@ -1,9 +1,8 @@
-//Mixin margin for h2
+// Mixin for margin in h2
 @mixin margin-h2($top: 2rem, $bottom: 2rem) {
   margin-top: $top;  // Set the top margin
   margin-bottom: $bottom;  // Set the bottom margin
 }
-
 
 // Mixin for vertical and horizontal centering of elements
 @mixin center-flex($justify: center, $align: center) {
@@ -19,18 +18,35 @@
   font-family: "flowers";
   font-weight: bold;
   letter-spacing: 3px;
+  text-decoration: none;
 }
 
 // Mixin for menu link styling
-@mixin menu-link {
+@mixin link {
   color: $Color_Font;
   text-decoration: none;
   font-weight: normal;
+  transition: color 0.3s ease;
+  text-decoration: none; 
+  outline: none; 
   
   &:hover {
-    color: #ddd;
-    border-bottom: 2px solid #ffffff;
+    color: $l_Style;
+    font-weight: bold;
   }
+}
+
+// Mixin for hamburger menu
+@mixin hamburger-menu () {
+  padding: clamp(10px, 2vw, 20px); /* Scalable padding for the menu */
+  height: clamp(50px, 8vw, 60px); /* Scalable height for the menu */
+  background-color: $bgmenu;
+  color: $Color_Font;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
 }
 
 // Mixin to hide elements on mobile screens
@@ -50,6 +66,7 @@
   transition: 0.3s;
 }
 
+// Mixin for text styling
 @mixin text-style($font-size: 1rem, $font-family: "Arial", $letter-spacing: 0) {
   font-size: $font-size;
   font-family: $font-family;
@@ -66,12 +83,12 @@
 
 // Mixin for creating a responsive font-size using clamp()
 // Accepts three parameters: minimum size, preferred size, and maximum size
-@mixin clamp-font($min, $preferred, $max) {
+@mixin clamp-size($min, $preferred, $max) {
   font-size: clamp(#{$min}, #{$preferred}, #{$max});
 }
 
 // Mixin to define consistent button sizing and styling
-@mixin button-size($width: 10rem, $height: 3rem, $padding: 0.5rem 1rem, $font-size: 1rem) {
+@mixin button-style($width: 10rem, $height: 3rem, $padding: 0.5rem 1rem, $font-size: 1rem) {
   width: $width; 
   height: $height; 
   padding: $padding; 
@@ -79,5 +96,90 @@
   border: none; 
   border-radius: 4px; 
   cursor: pointer; 
-  transition: background-color 0.3s ease; 
+  transition: background-color 0.3s ease;
+  font-family: 'Times New Roman', Times, serif;
+  background-color: $btn_color; // Primary button color
+  color: white; // Button text color
+  border: none;
+  border-radius: 20px;
+  text-align: center;
+  margin: 2rem auto 0; // Center button with margin above
+  max-width: 100%;
+
+    &:hover{
+      font-weight: bold;
+      color: $l_Style;
+      background-color: $bgmenu;
+      border-style: solid;
+      border-color: rgb(7, 7, 41);
+    }
+}
+
+// Mixin for footer background and padding
+@mixin footer-base-styling($bgcolor, $padding) {
+  background-color: $bgcolor;
+  padding: $padding;
+  text-align: center;
+  color: #fff;
+  width: 100%;
+}
+
+// Mixin for flexbox layout in footer
+@mixin footer-layout($gap, $max-width) {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: $gap;
+  max-width: $max-width;
+  margin: 0 auto;
+}
+
+// Mixin for footer link styling (including social icons)
+@mixin footer-link-style($color, $hover-color) {
+  color: $color;
+  text-decoration: none;
+  transition: color 0.3s ease;
+
+  &:hover {
+      color: $hover-color;
+  }
+}
+
+// Mixin for footer title styling
+@mixin footer-title-style($font-size, $font-weight, $margin-bottom) {
+  font-size: $font-size;
+  font-weight: $font-weight;
+  margin-bottom: $margin-bottom;
+}
+
+// Mixin for margin between footer sections
+@mixin footer-section-margin($top, $bottom) {
+  margin-top: $top;
+  margin-bottom: $bottom;
+}
+
+// Mixin for social icon styling in footer (size and spacing)
+@mixin footer-social-icon($font-size, $gap) {
+  display: flex;
+  gap: $gap;
+  justify-content: center;
+
+  a {
+      font-size: $font-size;
+      color: #fff;
+      transition: color 0.3s ease;
+      text-decoration: none;
+
+      &:hover {
+          color: $l_Style; // Hover color
+      }
+  }
+}
+
+// Mixin for footer sections (contacts, social-media, rights)
+@mixin footer-section($padding, $flex, $width) {
+  flex: $flex;
+  padding: $padding;
+  width: $width;
 }

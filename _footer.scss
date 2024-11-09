@@ -1,75 +1,48 @@
 footer {
-    background-color: $bgfooter; // Background color for the footer
-    color: #fff; // Default text color for footer elements
-    padding: 1rem; // Padding around the footer
-    text-align: center; // Center-aligns the footer content
-    width: 100vw; // Full viewport width
+    @include footer-base-styling($bgfooter, 0.5rem);
+    @include clamp-size(2rem, 5vw, 6rem);
+
+    margin-top: 3rem; // Fixed margin used here, but it can be replaced with a scalable mixin if preferred
 
     #footer-content {
-        display: flex; // Flexbox for layout
-        justify-content: space-between; // Distribute space between items
-        align-items: flex-start; // Align items at the start of the flex container
-        flex-wrap: wrap; // Allow items to wrap to the next line if necessary
-        gap: 2rem; // Gap between items
-        max-width: 1200px; // Maximum width for the footer content
-        margin: 0 auto; // Center the footer content
+        @include footer-layout(2rem, 1200px);
 
         .contacts,
         .social-media,
         .rights {
-            flex: 1 1 100%; // Each section takes full width on small screens
-            padding: 1rem; // Padding for each section
-        }
+            @include footer-section(1rem, 1 1 100%, 100%);
 
-        h2 {
-            font-size: 1.5rem; // Font size for section headers
-            margin-bottom: 1rem; // Space below headers
-            font-weight: bold; // Make headers bold
-        }
+            h2 {
+                @include footer-title-style(1.5rem, bold, 1rem);
+            }
 
-        .email-container, .rights, address {
-            font-size: 1rem; // Font size for contact details
-            margin: 0.5rem 0; // Margin around contact details
-            a {
-                color: #fff; // Link color
-                text-decoration: none; // Remove underline from links
+            .email-container, .rights, address {
+                font-size: 1rem;
+                margin: 0.5rem 0;
 
-                &:hover {
-                    color: $l_Style; // Change link color on hover
+                a {
+                    @include footer-link-style(#fff, $l_Style); // Styling for footer links
                 }
             }
         }
 
         .social-media {
             .icons {
-                display: flex; // Flexbox for social media icons
-                gap: 1rem; // Space between icons
-                justify-content: center; // Center the icons
-                
-                a {
-                    color: #fff; // Color for social media links
-                    font-size: 1.5rem; // Font size for icons
-                    transition: color 0.3s ease; // Smooth color transition on hover
-                    text-decoration: none; // Remove underline from icons
-
-                    &:hover {
-                        color: $l_Style; // Highlight color on hover
-                    }
-                }
+                @include footer-social-icon(1.5rem, 1rem); // Styling for social media icons
             }
         }
 
         .rights {
-            font-size: 0.9rem; // Font size for rights statement
-            color: #bbb; // Color for rights text
-            margin-top: 2rem; // Margin above rights text
+            font-size: 0.9rem;
+            color: #bbb;
+            @include footer-section-margin(2rem, 0); // Margin adjustments for the rights section
         }
     }
 
     @media (max-width: 768px) {
         #footer-content {
-            flex-direction: column; // Stack sections vertically on small screens
-            align-items: center; // Center-align items in the footer
+            flex-direction: column; // Stack the footer content vertically on small screens
+            align-items: center; // Center-align the items in the footer
         }
     }
 }

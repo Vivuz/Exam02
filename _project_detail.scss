@@ -1,0 +1,89 @@
+// Layout for project details section
+.project-detail {
+    display: flex; // Using flexbox for the layout
+    flex-wrap: wrap; // Allow items to wrap in small screen sizes
+    padding: 2rem; // Padding around the content
+    max-width: 1200px; // Maximum width for large screens
+    margin: 4rem 0 auto; // Margin for spacing
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // Shadow for visual depth
+    border-radius: 8px; // Rounded corners
+
+    // Left column containing the image and title
+    .left-column {
+        flex: 1; // Takes 1 part of the space in the flex container
+        display: flex;
+        flex-direction: column; // Stack the items vertically
+        align-items: center; // Center-align the content
+        margin-right: 2rem; // Right margin for spacing
+
+        img {
+            width: 100%; // Image takes full width of its container
+            max-width: 300px; // Limits image width to 300px
+            height: auto; // Maintain aspect ratio
+            border-radius: 8px; // Rounded corners for the image
+            margin-bottom: clamp(0.5rem, 2vw, 1.5rem); // Responsive bottom margin
+        }
+
+        h1 {
+            font-size: clamp(1.5rem, 5vw, 2rem); // Responsive font size for the title
+            color: $Color_Font; // Color for the title
+            margin-bottom: clamp(1rem, 4vw, 2rem); // Responsive bottom margin
+        }
+    }
+
+    // Right column containing the project description or details
+    .right-column {
+        flex: 2; // Takes 2 parts of the space in the flex container
+        display: flex;
+        flex-direction: column; // Stack items vertically
+        justify-content: center; // Center content vertically
+        align-items: flex-start; // Align items to the left
+        font-size: clamp(1rem, 2vw, 1.1rem); // Responsive font size for text
+        line-height: 1.8; // Line height for readability
+        color: $colorGenFont; // Font color
+        padding: 1rem; // Padding around the text
+    }
+}
+
+// Footer styling
+footer {
+    background-color: $bgfooter; // Background color of the footer
+    padding: 1.5rem 0; // Padding for the footer
+    text-align: center; // Center-align footer content
+    color: $Color_Font; // Font color in footer
+
+    p {
+        margin: 0; // Remove default margin
+        font-size: 1rem; // Set font size for paragraph text
+    }
+}
+
+// Mobile media query (screens smaller than 768px)
+@media (max-width: 768px) {
+    .project-detail {
+        flex-direction: column; // Stack columns vertically on mobile
+        text-align: center; // Center-align text on mobile
+
+        .left-column {
+            margin-right: 0; // Remove right margin on mobile
+            margin-bottom: 1rem; // Add margin below the left column
+            width: 100%; // Make the left column full width on mobile
+        }
+
+        img {
+            max-width: 100%; // Ensure the image is responsive on mobile
+            margin-bottom: clamp(1rem, 4vw, 2rem); // Adjust bottom margin on mobile
+        }
+
+        .right-column {
+            align-items: center; // Center-align content in the right column
+            font-size: clamp(1rem, 3vw, 1.1rem); // Adjust font size for mobile
+            width: 100%; // Make the right column full width on mobile
+        }
+
+        h1 {
+            font-size: clamp(1.5rem, 6vw, 2rem); // Adjust heading size on small screens
+            margin-bottom: 1.5rem; // Add bottom margin to the heading
+        }
+    }
+}

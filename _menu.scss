@@ -1,135 +1,175 @@
-// Base styling for the header and navigation bar
-header {
-    position: fixed; // Keep the header at the top of the page
-    top: 0;
-    left: 0;
-    width: 100vw; // Full viewport width to stretch across the screen
-    z-index: 1000; // Ensure header stays on top of other elements
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    .content-flex {
-        @include center-flex(space-between, center); // Flexbox to center items and distribute space
-        padding: 0 2rem;
-        height: 60px; // Height of the header
-        width: 100%; // Full width of the header
-        background-color: $bgmenu; // Background color for the header
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.746); // Shadow for depth
+/* Desktop menu styling */
+nav.hamburger-menu {
+    @include hamburger-menu;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  
+
+    /* Logo (desktop) */
+    .logo {
+        @include logo-text;
+        font-size: clamp(1.5rem, 4vw, 2rem); /* Scalable font for the logo */
+        flex: 1;
+    }
+
+    /* Menu items (desktop) */
+    ul#menu {
+        display: flex;
+        gap: clamp(20px, 2vw, 30px); /* Scalable gap between menu items */
+        list-style: none;
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding: clamp(1rem, 2vw, 2rem); /* Scalable padding for the menu */
+
+        li {
+            list-style: none;
+        }
+
+        /* Increase specificity for menu items */
+        li a.menuvoice {
+            @include link;
+            font-size: clamp(1rem, 2.5vw, 1.1rem); /* Scalable font for menu items */
+            font-weight: 600;
+            transition: color 0.25s ease; /* Transition effect for color change */
+        }
     }
 }
 
-// Hamburger menu wrapper styling
-.hamburger-menu {
-    @include center-flex(left); // Align menu items to the left
-    width: 100%;
-    height: 40px; // Height for alignment with header
-
-    .logo {
-        @include logo-text; // Logo styling mixin
-        margin-top: 3rem; // Adjust vertical spacing
-        margin-right: auto; // Push logo to the far left
-    }
-
-    .menu {
-        display: flex; // Horizontal menu by default
-        list-style: none; // Remove default list styling
-        
-        li {
-            margin-right: 2rem; // Space between menu items
-            @include clamp-font(1rem, 1.5vw, 1.25rem); // Responsive font size
-
-            a {
-                @include menu-link; // Styles for links (color, no underline, etc.)
-            }
-        }
-    }
-
-    // Control input for toggling the hamburger menu, hidden by default
-    #control {
-        display: none; // Hidden checkbox for controlling menu toggle
-    }
-
-    // Label for the hamburger icon (visible only on mobile)
-    .label-control {
-        display: none; // Hidden on larger screens
-        position: relative;
-        width: 30px;
-        height: 22px;
-        cursor: pointer; // Pointer cursor for interactivity
-
-        span,
-        span:before,
-        span:after {
-            @include hamburger-bar(); // Hamburger icon styling for bars
-        }
-
-        span {
-            top: 9px; // Center bar position
-        }
-
-        span:before {
-            top: -9px; // Top bar position
-        }
-
-        span:after {
-            top: 9px; // Bottom bar position
-        }
-    }
-
-    // Responsive design: transform the menu into a hamburger menu on smaller screens
-    @media (max-width: 768px) {
-        .content-flex {
-            display: flex; // Ensure content is flexbox aligned on mobile
-        }
+/* Mobile menu */
+@media (max-width: 768px) {
+    nav.hamburger-menu {
         .logo {
-            @include hide-on-mobile; // Hide the logo on smaller screens
+          @include hide-on-mobile;
         }
-        .menu {
-            position: absolute;
-            top: 60px; // Place menu below the header
-            right: 0;
-            flex-direction: column; // Stack menu items vertically
-            align-items: center;
-            width: 100%;
-            height: 0; // Collapse the menu initially
-            overflow: hidden; // Hide overflowing content when collapsed
-            background-color: $bgmenu; // Background for the dropdown menu
-            transition: height 0.3s ease; // Smoothly transition height on toggle
 
-            li {
-                width: 100%; // Full-width items
-                text-align: center;
-                margin: 0;
-                padding: 1rem 0; // Space between items
+        /* Open menu button */
+        .open-menu {
+            position: fixed;
+            top: clamp(2rem, 4vw, 2.5rem); /* Scalable height from the top margin */
+            left: 30px;
+            width: clamp(25px, 5vw, 30px); /* Scalable width for the button */
+            height: clamp(25px, 5vw, 30px); /* Scalable height for the button */
+            cursor: pointer;
+            z-index: 10;
+
+            > span,
+            ::before,
+            ::after {
+              @include hamburger-bar;
+            }
+
+            ::before {
+                content: "";
+                top: -8px;
+            }
+
+            ::after {
+                content: "";
+                top: 8px;
             }
         }
 
-        // Show menu when the control checkbox is checked
-        #control:checked ~ .menu {
-            height: auto; // Expand the menu
-        }
+        /* Close menu button */
+        .close-menu {
+            position: fixed;
+            top: clamp(2rem, 4vw, 2.5rem); /* Scalable height from the top margin */
+            left: 30px;
+            width: clamp(25px, 5vw, 30px); /* Scalable width for the button */
+            height: clamp(25px, 5vw, 30px); /* Scalable height for the button */
+            cursor: pointer;
+            z-index: 10;
+            display: none; /* Initially hidden */
 
-        .label-control {
-            display: block; // Show hamburger icon on mobile
-            width: 25px;
-            height: 18px;
+            > span,
+            ::before,
+            ::after {
+              @include hamburger-bar;
+            }
 
-            span, span:before, span:after {
-                @include hamburger-bar(100%, 3px); // Adjust bar thickness
+            ::before {
+                content: "";
+                top: -8px;
+            }
+
+            ::after {
+                content: "";
+                top: 8px;
             }
         }
 
-        // Animate hamburger icon to an "X" shape when clicked
-        #control:checked + .label-control span {
-            transform: rotate(45deg); // Rotate middle bar
+        /* Menu (mobile) */
+        #menu {
+            position: fixed;
+            top: 0;
+            left: -100%;
+            width: 80%;
+            height: 100%;
+            padding: clamp(20px, 4vw, 40px); /* Scalable padding */
+            background-color: $bgmenu;
+            box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.342);
+            transition-duration: 0.25s;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start; /* Align menu items to the start */
+            align-items: flex-start;
+            z-index: 5; /* Set z-index value to avoid conflicts with other elements */
         }
 
-        #control:checked + .label-control span:before {
-            transform: rotate(90deg); // Rotate top bar to horizontal
-            top: 0; // Move to center
+        /* Menu items */
+        .menuvoice {
+            display: block;
+            padding: clamp(20px, 2vw, 22px) clamp(30px, 5vw, 36px); /* Scalable padding between items */
+            margin-top: clamp(40px, 5vw, 50px); /* Increased margin between the X and menu items */
+            color: $colorGenFont;
+            font-size: clamp(0.9rem, 4vw, 1rem); /* Scalable font for menu items */
+            font-weight: 600;
+            transition-duration: 0.25s;
+            width: 100%; /* Set to 100% to stretch menu items uniformly */
+
+            &:hover {
+                color: $l_Style !important;
+            }
         }
 
-        #control:checked + .label-control span:after {
-            transform: rotate(90deg); // Rotate bottom bar to horizontal
-            top: 0; // Move to center
+        /* Hamburger menu toggling */
+        &:target {
+            .open-menu {
+                display: none;
+            }
+
+            .close-menu {
+                display: block;
+            }
+
+            .close-menu > span {
+                transform: rotate(45deg);
+                background-color: $colorHeading;
+            }
+
+            .close-menu > span::before {
+                top: 0;
+                transform: rotate(0deg);
+                background-color: $colorHeading;
+            }
+
+            .close-menu > span::after {
+                top: 0;
+                transform: rotate(90deg);
+                background-color: $colorHeading;
+            }
+
+            #menu {
+                left: 0 !important;
+            }
         }
     }
 }

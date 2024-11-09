@@ -1,51 +1,44 @@
 .projects {
     padding: 2rem;
+}
 
-    .myProject {
-        display: flex;
-        flex-direction: column; // Stack project items vertically
-        gap: 2rem; // Space between each project
+.myProject {
+    display: flex;
+    flex-wrap: nowrap; /* Projects should not wrap to the next line */
+    gap: 2rem; /* Space between elements */
+    justify-content: space-between; /* Distributes items horizontally but does not wrap */
+    align-items: center; /* Vertically centers the projects */
+}
 
-        .p-title {
-            display: flex; // Flex container for title, image and description
-            align-items: flex-start; // Align items at the start
-            gap: 1rem; // Space between items
+.p-title {
+    display: flex;
+    flex-direction: column; /* Places the title above and the image below */
+    align-items: center; /* Centers content horizontally */
+    width: clamp(200px, 20vw, 250px); /* Scalable width */
+    text-align: center; /* Centers the text */
+    margin-bottom: 1.5rem;
 
-            h3 {
-                @include clamp-font(1rem, 2.5vw, 1.5rem); // Responsive font size for project title
-                margin: 0; // Reset margin
-                width: 100%; // Ensure title takes full width
-                font-family: $fontHeading;
-                color: $Color_Font;
-            }
+    a {
+       @include link; 
+    }
+    
+    h3 {
+        font-size: clamp(1rem, 2vw, 1.5rem); /* Scalable title */
+        margin: 0.5rem 0;
+        font-family: $fontHeading;
+    }
 
-            img {
-                max-width: 150px; // Fixed width for images
-                height: auto; // Maintain aspect ratio
-                border-radius: 10px; // Rounded corners
-            }
-
-            p {
-                @include clamp-font(1rem, 1.5vw, 1.25rem); // Responsive font size for project description
-                flex-grow: 1; // Allow description to take remaining space
-                text-align: justify; 
-                margin: 0; // Reset margin
-                color: $colorGenFont; // Use your color variable
-                letter-spacing: 1px;
-            }
-        }
+    img {
+        width: clamp(100px, 12vw, 150px); /* Scalable reduced image */
+        height: auto; /* Maintains aspect ratio */
+        border-radius: 10px; /* Rounded corners */
     }
 }
 
 @media (max-width: 768px) {
     .projects .myProject {
-        .p-title {
-            flex-direction: column; // Stack title, image, and description vertically on small screens
-            align-items: center; // Center align items
-            
-            img {
-                max-width: 100%; // Allow image to take full width on small screens
-            }
-        }
+        justify-content: center; /* Centers projects on small screens */
+        flex-direction: column; /* Stacks projects vertically on small screens */
+        align-items: center; /* Vertically centers the projects */
     }
 }
