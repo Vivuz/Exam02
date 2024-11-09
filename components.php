@@ -19,7 +19,7 @@ function renderMenu($currentPage) {
                     <li><a class="menuvoice" href="' . ($currentPage === 'index' ? '#home' : 'index.php#home') . '" title="Home">Home</a></li>
                     <li><a class="menuvoice" href="' . ($currentPage === 'index' ? '#myproject' : 'index.php#myproject') . '" title="My Projects">My Projects</a></li>
                     <li><a class="menuvoice" href="' . ($currentPage === 'index' ? '#aboutme' : 'index.php#aboutme') . '" title="About Me">About Me</a></li>
-                    <li><a class="menuvoice" href="' . ($currentPage === 'index' ? '#contact' : 'index.php#contact') . '" title="Contact Us">Contact Us</a></li>
+                    <li><a class="menuvoice" href="' . ($currentPage === 'index' ? '#contact' : 'index.php#contact') . '" title="Contact Us">Contact</a></li>
                 </ul>
             </nav>
         </div>';
