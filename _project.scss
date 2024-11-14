@@ -1,44 +1,110 @@
 .projects {
-    padding: 2rem;
-}
 
-.myProject {
+  .myProject {
     display: flex;
-    flex-wrap: nowrap; /* Projects should not wrap to the next line */
-    gap: 2rem; /* Space between elements */
-    justify-content: space-between; /* Distributes items horizontally but does not wrap */
-    align-items: center; /* Vertically centers the projects */
-}
+    flex-wrap: wrap; // Allows the cards to wrap onto multiple lines if needed
+    justify-content: center; // Centers the cards horizontally
+    gap: 1vw; // Space between the cards
 
-.p-title {
-    display: flex;
-    flex-direction: column; /* Places the title above and the image below */
-    align-items: center; /* Centers content horizontally */
-    width: clamp(200px, 20vw, 250px); /* Scalable width */
-    text-align: center; /* Centers the text */
-    margin-bottom: 1.5rem;
+    .p-title {
+      display: flex;
+      flex-direction: column; // Aligns the title and card vertically
+      align-items: center; // Centers the content horizontally
+      width: 100%;
+      max-width: 350px; // Limits the maximum width of the title section
 
-    a {
-       @include link; 
-    }
-    
-    h3 {
-        font-size: clamp(1rem, 2vw, 1.5rem); /* Scalable title */
-        margin: 0.5rem 0;
-        font-family: $fontHeading;
-    }
+      .card {
+        width: clamp(200px, 50vw, 250px); // Responsive width, scaling with viewport size
+        height: clamp(200px, 50vw, 250px); // Responsive height, scaling with viewport size
+        position: relative;
+        perspective: 1000px; // Enables the 3D rotation effect
+        margin: 2.5vw; // Adds space around each card
+        border-radius: 2px; // Slightly rounded corners
+        
+        .card-inner {
+          width: 100%;
+          height: 100%;
+          position: relative;
+          transform-style: preserve-3d; // Maintains 3D effects during transformations
+          transition: transform 0.5s; // Smooth transition for the rotation effect
+          
+          .card-front,
+          .card-back {
+            width: 100%;
+            height: 100%;
+            position: absolute; // Stacks both sides of the card on top of each other
+            top: 0;
+            left: 0;
+            backface-visibility: hidden; // Hides the back side when rotated
+            display: flex;
+            justify-content: center; // Centers content horizontally
+            align-items: center; // Centers content vertically
+          }
 
-    img {
-        width: clamp(100px, 12vw, 150px); /* Scalable reduced image */
-        height: auto; /* Maintains aspect ratio */
-        border-radius: 10px; /* Rounded corners */
-    }
-}
+          .card-front {
+            background-color: $bgmenu; // Background color for the front side
+            border-radius: 5px; // Rounded corners for the front side
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // Light shadow for depth effect
+            img {
+              width: 80%; // Image takes 80% of the card's width
+              height: 80%; // Image takes 80% of the card's height
+              border-radius: 8px; // Rounded corners for the image
+            }
+          }
 
-@media (max-width: 768px) {
-    .projects .myProject {
-        justify-content: center; /* Centers projects on small screens */
-        flex-direction: column; /* Stacks projects vertically on small screens */
-        align-items: center; /* Vertically centers the projects */
+          .card-back {
+            background-color: $l_Style; // Background color for the back side
+            border-radius: 10px; // More rounded corners for the back side
+            color: #fff; // Text color on the back side
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // Light shadow for depth effect
+            transform: rotateY(180deg); // Rotates the back side 180 degrees
+            padding: 20px; // Padding for content inside the back side
+            text-align: center; // Centers text content
+          }
+
+          p {
+              font-family: $fontHeading; // Font family for the text
+              color: $colorHeading; // Text color
+              font-size: 1.5rem; // Text size
+              font-weight: bold; // Bold text style
+              letter-spacing: 2px; // Spacing between letters
+          }
+        }
+
+        &:hover .card-inner {
+          transform: rotateY(180deg); // Flips the card on hover
+        }
+      }
+
+      h3 {
+        text-align: center; // Centers the title text
+        margin-bottom: 1rem; // Space below the title
+        font-size: clamp(1.3rem, 2.5vw, 1.7rem); // Responsive font size
+        font-weight: 600; // Semi-bold font weight
+        color: $Color_Font; // Title text color
+        margin-top: 10vh; // Space above the title
+      }
+
+      a {
+          text-decoration: none; // Removes underline from links
+      }
     }
+  }
+
+  // Styles for screens wider than 768px
+  @media (min-width: 768px) {
+    .myProject {
+      flex-direction: row; // Arranges the cards in a row
+      justify-content: space-around; // Distributes the cards evenly
+
+      .p-title {
+        width: 30%; // Reduces the width of the title section
+        text-align: center; // Centers the text
+
+        h3 {
+          margin-bottom: 1rem; // Space below the title
+        }
+      }
+    }
+  }
 }

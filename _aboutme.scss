@@ -2,7 +2,7 @@
     font-family: 'Times New Roman', Times, serif;
     @include clamp-size(1rem, 1.5vw, 1.25rem); // Limits the font size between 1rem and 1.25rem, adjusting with viewport width
     text-align: justify; // Justifies the text to spread it across the full width of the container
-    margin: 2.5vw; // Sets margin as a percentage of the viewport width
+    margin: 5vw; // Sets margin as a percentage of the viewport width
     color: $colorGenFont; // Applies the general font color defined in the variables
     letter-spacing: 1px; // Adds spacing between characters for better readability
 }

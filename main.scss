@@ -46,6 +46,15 @@ h2 {
     font-family: $fontHeading; 
     text-align: center; 
     @include clamp-size(1.5rem, 3vw, 2rem); 
-    @include margin-h2(3rem, 3rem); 
+    @include margin-h2(4rem, 3rem); 
     letter-spacing: 2px; 
 }
+
+//styling for the section dividers
+svg {
+    width: 10%;  
+    height: auto; 
+    display: block;
+    margin: 20vh auto; 
+}
+

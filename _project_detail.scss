@@ -10,26 +10,29 @@
 
     // Left column containing the image and title
     .left-column {
-        flex: 1; // Takes 1 part of the space in the flex container
+        flex: 1; // Takes up one part of the available space in the flex container
         display: flex;
-        flex-direction: column; // Stack the items vertically
-        align-items: center; // Center-align the content
-        margin-right: 2rem; // Right margin for spacing
+        flex-direction: column; // Stacks the image and title vertically
+        align-items: flex-start; // Aligns the content to the left side
+        margin-right: 2rem; // Adds spacing to the right for separation
 
         img {
-            width: 100%; // Image takes full width of its container
-            max-width: 300px; // Limits image width to 300px
-            height: auto; // Maintain aspect ratio
-            border-radius: 8px; // Rounded corners for the image
-            margin-bottom: clamp(0.5rem, 2vw, 1.5rem); // Responsive bottom margin
+            width: 100%; // Image takes the full width of its container
+            max-width: 300px; // Limits the image width to 300px
+            height: auto; // Keeps the aspect ratio intact
+            border-radius: 8px; // Adds rounded corners to the image
+            margin-bottom: clamp(2rem, 4vw, 3rem); // Increases the space below the image
         }
 
         h1 {
-            font-size: clamp(1.5rem, 5vw, 2rem); // Responsive font size for the title
-            color: $Color_Font; // Color for the title
-            margin-bottom: clamp(1rem, 4vw, 2rem); // Responsive bottom margin
+            font-size: clamp(1.5rem, 5vw, 2rem); // Sets a responsive font size for the title
+            color: $Color_Font; // Uses the predefined color for the title
+            margin-bottom: clamp(2rem, 6vw, 3rem); // Adds extra space below the title
+            text-align: left; // Aligns the title text to the left
+            width: 100%; // Ensures the title occupies the full width of the container
         }
     }
+
 
     // Right column containing the project description or details
     .right-column {
@@ -40,8 +43,11 @@
         align-items: flex-start; // Align items to the left
         font-size: clamp(1rem, 2vw, 1.1rem); // Responsive font size for text
         line-height: 1.8; // Line height for readability
-        color: $colorGenFont; // Font color
+        color: blue($color: #000000); // Font color
         padding: 1rem; // Padding around the text
+        text-align: justify;
+        background-color: rgb(222, 215, 202);
+        border-radius: 8px;
     }
 }
 
@@ -73,6 +79,9 @@ footer {
         img {
             max-width: 100%; // Ensure the image is responsive on mobile
             margin-bottom: clamp(1rem, 4vw, 2rem); // Adjust bottom margin on mobile
+            display: block; // Make the image a block element to apply margins
+            margin-left: auto; // Auto margin to center it horizontally
+            margin-right: auto; // Auto margin to center it horizontally
         }
 
         .right-column {

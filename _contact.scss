@@ -8,6 +8,14 @@
         flex-direction: column;
         gap: clamp(1rem, 2vw, 1.5rem); // Responsive spacing between elements
 
+        .success-message {
+            @include clamp-size(1.2rem, 1.5vw, 1.30rem); // Responsive font size for question text
+            font-family: $fontHeading;
+            color: $l_Style;
+            text-align: center; // Center-align text within the form
+            letter-spacing: 0.5px;
+        }
+
         .ContactQuestion {
             @include clamp-size(1rem, 1.5vw, 1.25rem); // Responsive font size for question text
             font-family: $fontHeading;
