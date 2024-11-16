@@ -37,7 +37,7 @@
 
             // if there are no errors, save the data and send the confirmation message        
             if (!array_filter($errors)) {
-            $new_data = array('name' => $name, 'email' => $email);
+            $new_data = array('name' => $name, 'email' => $email, 'message' => $message );
             $file = 'data.json';
 
             // Read existing data and add new ones, avoiding duplicates            
@@ -51,7 +51,7 @@
             // Check if the data already exists to avoid duplicates            
             $duplicate = false;
             foreach ($existing_data as $data) {
-                if ($data['name'] == $new_data['name'] && $data['email'] == $new_data['email']) {
+                if ($data['name'] == $new_data['name'] && $data['email'] == $new_data['email'] && $data['message'] == $new_data['message']) {
                     $duplicate = true;
                     break;
                 }
